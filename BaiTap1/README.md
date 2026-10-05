@@ -45,5 +45,13 @@ sudo systemctl restart ssh
 # (Lưu ý: Không tắt Terminal hiện tại, hãy mở 1 Terminal mới để test kết nối trước khi thoát)
 ```
 
-### Log kiểm tra kết nối:
-*(Học viên dán log terminal thực hiện lệnh SSH với port 2222 thành công và port 22 thất bại vào đây để chứng minh)*
+### Log kiểm tra kết nối (Kết quả thực tế):
+```bash
+$ ssh -p 22 devops@103.72.57.95
+ssh: connect to host 103.72.57.95 port 22: Connection refused
+
+$ ssh -p 2222 devops@103.72.57.95
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-84-generic x86_64)
+
+devops@ubuntu-s-1vcpu-1gb-sgp1-01:~$
+```

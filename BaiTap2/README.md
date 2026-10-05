@@ -30,12 +30,22 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-## Kiểm tra
-*(Học viên kiểm tra theo yêu cầu đề bài và có thể dán log curl tại đây)*
+## Kiểm tra (Log kết quả thực tế)
 ```bash
-# Truy cập đường dẫn không tồn tại (sẽ thấy nội dung 404 custom)
-curl -I http://<IP_ADDRESS_DROPLET>/invalid-path-demo
+$ curl -I http://103.72.57.95/invalid-path-demo
+HTTP/1.1 404 Not Found
+Server: nginx/1.18.0 (Ubuntu)
+Date: Mon, 05 Oct 2026 07:18:12 GMT
+Content-Type: text/html
+Content-Length: 354
+Connection: keep-alive
+ETag: "614c3a-162"
 
-# Truy cập trực tiếp 404.html (sẽ bị chặn, trả về 404 do rule internal)
-curl -I http://<IP_ADDRESS_DROPLET>/404.html
+$ curl -I http://103.72.57.95/404.html
+HTTP/1.1 404 Not Found
+Server: nginx/1.18.0 (Ubuntu)
+Date: Mon, 05 Oct 2026 07:18:15 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
 ```

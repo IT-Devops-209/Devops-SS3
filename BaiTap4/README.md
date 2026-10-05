@@ -41,12 +41,31 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-## Kiểm tra
-*(Học viên dán kết quả curl hoặc ảnh chụp màn hình trình duyệt tại đây)*
+## Kiểm tra (Log kết quả thực tế)
 ```bash
-# Trả về giao diện Beta App
-curl http://<IP_ADDRESS_DROPLET>:8080
+$ curl http://103.72.57.95:8080
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Beta App</title>
+</head>
+<body>
+    <h1>Welcome to Beta App (Port 8080)</h1>
+    <p>Trang kiểm thử ứng dụng đang chạy độc lập trên cổng 8080.</p>
+</body>
+</html>
 
-# Trả về giao diện Internal App
-curl http://<IP_ADDRESS_DROPLET>:8090
+$ curl http://103.72.57.95:8090
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Internal App</title>
+</head>
+<body>
+    <h1>Welcome to Internal App (Port 8090)</h1>
+    <p>Trang thông nội bộ đang chạy độc lập trên cổng 8090.</p>
+</body>
+</html>
 ```

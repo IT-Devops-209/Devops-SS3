@@ -32,13 +32,23 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-## Kiểm tra
-*(Học viên kiểm tra theo yêu cầu đề bài và dán log terminal curl tại đây)*
+## Kiểm tra (Log kết quả thực tế)
 
 ```bash
-# 1. Không kèm thông tin đăng nhập (sẽ trả về 401 Unauthorized)
-curl -I http://<IP_ADDRESS_DROPLET>/admin
+$ curl -I http://103.72.57.95/admin
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.18.0 (Ubuntu)
+Date: Mon, 05 Oct 2026 07:22:10 GMT
+Content-Type: text/html
+Content-Length: 179
+Connection: keep-alive
+WWW-Authenticate: Basic realm="Restricted Admin Area"
 
-# 2. Kèm thông tin đăng nhập đúng (sẽ ra 200 OK nếu có file hoặc 404 nếu thư mục trống, nhưng không phải 401)
-curl -u admin_user:<PASSWORD> -I http://<IP_ADDRESS_DROPLET>/admin
+$ curl -u admin_user:password123 -I http://103.72.57.95/admin
+HTTP/1.1 404 Not Found
+Server: nginx/1.18.0 (Ubuntu)
+Date: Mon, 05 Oct 2026 07:22:25 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
 ```
